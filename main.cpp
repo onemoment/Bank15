@@ -1,6 +1,11 @@
 #include <iostream>
+#include "Data.h"
 
 int main(int argc, char **argv) {
-    std::cout << "Hello, world!" << std::endl;
-    return 0;
+  Data data;
+  data.setDzien(23);
+  
+  std::cout << data.getData(); 
+  
+  return 0;
 }
