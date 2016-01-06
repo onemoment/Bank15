@@ -10,6 +10,18 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Adres.cpp" />
+    <ClCompile Include="Data.cpp" />
+    <ClCompile Include="Klient.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Tool.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Adres.h" />
+    <ClInclude Include="Data.h" />
+    <ClInclude Include="Tool.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{CC65F5E6-A9E5-4A6E-8996-B9D51D8E71D4}</ProjectGuid>
     <RootNamespace>Bank</RootNamespace>
@@ -59,8 +71,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
