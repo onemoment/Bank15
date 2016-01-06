@@ -2,6 +2,7 @@
 !*.cpp
 !*.h
 !.qitignore
-!Bank\*.cpp
-!Bank\*.h
-!Bank\*.vcxproj*
+!Bank
+!Bank/*.cpp
+!Bank/*.h
+!Bank/*.vcxproj*
