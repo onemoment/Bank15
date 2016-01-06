@@ -13,6 +13,7 @@
   <ItemGroup>
     <ClCompile Include="Adres.cpp" />
     <ClCompile Include="Data.cpp" />
+    <ClCompile Include="Interfejs.cpp" />
     <ClCompile Include="Klient.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Tool.cpp" />
@@ -20,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="Adres.h" />
     <ClInclude Include="Data.h" />
+    <ClInclude Include="Interfejs.h" />
     <ClInclude Include="Tool.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

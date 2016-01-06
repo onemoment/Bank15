@@ -1,12 +1,11 @@
 #include <iostream>
-#include "Data.h"
+#include "Interfejs.h"
 
 int main(int argc, char **argv) {
-  Data data;
-  data.setDzien(23);
-  
-  std::cout << data.getData().c_str(); 
-  
-  system("PAUSE");
-  return 0;
+
+	Interfejs app;
+	app.Run();
+
+	//system("PAUSE");
+	return 0;
 }
