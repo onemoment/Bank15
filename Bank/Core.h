@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "Klient.h"
+#include "Rachunek.h"
 
 using namespace std;
 
@@ -9,7 +10,7 @@ class Core{
 private:
 	
 	vector<Klient> klienci;
-	vector<string> konta;
+	vector<Rachunek> konta;
 
 public:
 
@@ -20,5 +21,7 @@ public:
 
 	// lista rachunkow
 	void DodajRachunek();
+	void ListaRachunkow();
+	void UsunRachunek();
 
 };
