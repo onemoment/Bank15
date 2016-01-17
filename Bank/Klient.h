@@ -16,9 +16,11 @@ class Klient{
 	Adres adres;
 	bool aktywny;
 
+	std::string opisRodzaju();
 public:
 	Klient();
 	Klient(std::string Imie, std::string Nazwisko, RodzajKlienta Rodzaj);
+	void uzupelnijDane(TrybEdycji trybEdycji);
 	void uzupelnijAdres(TrybEdycji trybEdycji);
 	void aktywuj(bool aktywacja);
 	std::string getHeadLine();
