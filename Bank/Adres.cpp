@@ -68,3 +68,52 @@ string Adres::getKod(){
 
 	return Result;
 }
+
+void Adres::uzupelnij(TrybEdycji trybEdycji){
+	string _ulica;
+	string _dom;
+	int _mieszkanie;
+	string _miasto;
+	int _kod;
+	string _kraj;
+
+	// ulica
+	if (trybEdycji == teZmiana) cout << "Ulica : " << this->fUlica << endl << "Nowa wartosc : ";
+	cout << "Ulica: ";
+	cin >> _ulica;
+	if (_ulica.compare("") != 0) this->fUlica = _ulica;
+
+	// dom
+	if (trybEdycji == teZmiana) cout << "Numer domu : " << this->fDom << endl << "Nowa wartosc : ";
+	cout << "Numer domu: ";
+	cin >> _dom;
+	if (_dom.compare("") != 0) this->fDom = _dom;
+
+	// mieszkanie
+	if (trybEdycji == teZmiana) cout << "Mieszkanie : " << this->fMieszkanie << endl << "Nowa wartosc : ";
+	cout << "Mieszkanie: ";
+	cin >> _mieszkanie;
+	if (_mieszkanie != 0) this->fMieszkanie = _mieszkanie;
+
+	// miasto
+	if (trybEdycji == teZmiana) cout << "Miejscowosc : " << this->fMiasto << endl << "Nowa wartosc : ";
+	cout << "Miejscowosc: ";
+	cin >> _miasto;
+	if (_miasto.compare("") != 0) this->fMiasto = _miasto;
+
+	// kod pocztowy
+	if (trybEdycji == teZmiana) cout << "Kod pocztowy : " << getKod() << endl << "Nowa wartosc : ";
+	cout << "Kod pocztowy (bez kresek): ";
+	cin >> _kod;
+	if (_kod != 0) this->fKod = _kod;
+
+	// kraj
+	if (trybEdycji == teZmiana) cout << "Kraj : " << this->fKraj << endl << "Nowa wartosc : ";
+	cout << "Kraj: ";
+	cin >> _kraj;
+	if (_kraj.compare("") != 0) this->fKraj = _kraj;
+}
+
+void Adres::nowyAdres(){ uzupelnij(teDodawanie); }
+
+void Adres::zmienAdres(){ uzupelnij(teZmiana); }

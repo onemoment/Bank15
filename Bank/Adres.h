@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "Parametry.h"
 
 using namespace std;
 
@@ -10,6 +11,7 @@ class Adres{
 	string fMiasto;
 	int fKod;
 	string fKraj;
+
 public:
 	Adres();
 	Adres(string Ulica, string Dom, int Mieszkanie, int Kod, string Miasto, string Kraj);
@@ -27,4 +29,9 @@ public:
 	string getKodMiasto();
 	string getKraj();
 	string getKod();
+
+	// akcje
+	void uzupelnij(TrybEdycji trybEdycji);
+	void nowyAdres();
+	void zmienAdres();
 };
