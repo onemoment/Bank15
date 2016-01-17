@@ -20,18 +20,30 @@ void Interfejs::Run(){
 	Bye();
 }
 
-void Interfejs::Bevel(){
-	std::cout << "\n============================================================\n" << std::endl;
+void Interfejs::Bevel(std::string Header){
+	int used = 3;
+	std:: string bevel = "---";
+
+	if (Header.compare("") != 0){
+		bevel.append(" ");
+		bevel.append(Header);
+		bevel.append(" ");
+		used += Header.length() + 2;
+	}
+
+	for (int i = 0; i< (80-used); i++){
+		bevel.append("-");
+	}
+
+	std::cout << bevel << std::endl;
 }
 
 void Interfejs::Use(){
-	Bevel();
 	switch(this->wybor){
 	case 1: DodawanieKlienta(); break;
 	case 2: WypisanieListyKlientow(); break;
 	case 3: EdytowanieDanychKlienta(); break;
 	}
-	Bevel();
 }
 
 bool Interfejs::End(){
@@ -53,7 +65,7 @@ void Interfejs::Menu(){
 	int unsigned wybor;
 
 	cout << endl;
-	cout << "Menu" << endl;
+	Bevel("Menu");
 	cout << "Kartoteka klientow          Katroteka rachunkow        Transakcje             " << endl;
 	cout << "1. Dodaj klienta            5. Dodaj rachunek          8. Nowa transakcja     " << endl;
 	cout << "2. Lista klientow           6. Szczegoly rachunku      9. Historia transakcji " << endl;
@@ -74,13 +86,16 @@ void Interfejs::Bye(){
 // akcje
 
 void Interfejs::DodawanieKlienta(){
+	Bevel("Dodaj klienta");
 	this->core.DodajKlienta();
 }
 
 void Interfejs::WypisanieListyKlientow(){
+	Bevel("Lista klientow");
 	this->core.WypiszKlientow();
 }
 
 void Interfejs::EdytowanieDanychKlienta(){
+	Bevel("Edytuj dane klienta");
 	this->core.EdytujDaneklienta();
 }

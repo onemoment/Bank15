@@ -4,8 +4,6 @@
 #include "Klient.h"
 
 void Core::DodajKlienta(){
-	std::cout << "Dodaj klienta: " << std::endl;
-
 	Klient klient;
 	klient.uzupelnijDane(teDodawanie);
 	klient.uzupelnijAdres(teDodawanie);
@@ -14,9 +12,14 @@ void Core::DodajKlienta(){
 }
 
 void Core::WypiszKlientow(){
-	std::cout << "Klienci" << std::endl;
-	for(int i = 0; i<this->klienci.size(); i++){
-		std::cout << i << ". " << this->klienci[i].getHeadLine() << std::endl;
+	if (this->klienci.size() == 0){
+		std::cout << "    brak klientow.\n" << std::endl;
+	}
+	else
+	{
+		for(int i = 0; i<this->klienci.size(); i++){
+			std::cout << i << ". " << this->klienci[i].getHeadLine() << std::endl;
+		}
 	}
 }
 

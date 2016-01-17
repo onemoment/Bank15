@@ -7,7 +7,7 @@ class Interfejs{
 	Core core;
 
 	void Welcome();
-	void Bevel();
+	void Bevel(std::string Header);
 	void Menu();
 	void Capture();
 	bool Valid();
