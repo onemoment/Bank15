@@ -1,7 +1,6 @@
-#include <iostream>
 #include "Rachunek.h"
 
-class RachunekWalutowy : Rachunek{
+class RachunekWalutowy : public Rachunek{
 public:
 	RachunekWalutowy(Waluta waluta);
 	void setWaluta(Waluta waluta);

@@ -37,6 +37,7 @@ public:
 
 	void podlaczKarte();
 	bool isKarta();
+	bool isOtwarty();
 
 	void setProwizja(double prowizja);
 	double getProwizja();
@@ -50,4 +51,5 @@ public:
 	bool zamknijRachunek();
 	void przelewPrzychodzacy(int nadawca, double kwota, std::string tytul);
 	void przelewWychodzacy(int odbiorca, double kwota, std::string tytul);
+	std::string getNumer();
 };

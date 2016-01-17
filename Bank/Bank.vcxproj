@@ -19,6 +19,7 @@
     <ClCompile Include="Klient.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Rachunek.cpp" />
+    <ClCompile Include="RachunekBiezacy.cpp" />
     <ClCompile Include="RachunekOszczednosciowy.cpp" />
     <ClCompile Include="RachunekWalutowy.cpp" />
     <ClCompile Include="Tool.cpp" />

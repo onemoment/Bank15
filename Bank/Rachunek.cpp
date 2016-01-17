@@ -36,6 +36,10 @@ void Rachunek::setOprocetowanie(double oprocentowanie){
 	this->oprocentowanie = oprocentowanie;
 }
 
+bool Rachunek::isOtwarty(){
+	return this->otwarty;
+}
+
 double Rachunek::getOprocentowanie(){
 	return this->oprocentowanie;
 }
@@ -94,4 +98,8 @@ void Rachunek::przelewPrzychodzacy(int nadawca, double kwota, std::string tytul)
 
 void Rachunek::przelewWychodzacy(int odbiorca, double kwota, std::string tytul){
 	wyplata(tytul, kwota); //log
+}
+
+std::string Rachunek::getNumer(){
+	return this->numer;
 }

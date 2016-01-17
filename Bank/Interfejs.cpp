@@ -43,6 +43,9 @@ void Interfejs::Use(){
 	case 1: DodawanieKlienta(); break;
 	case 2: WypisanieListyKlientow(); break;
 	case 3: EdytowanieDanychKlienta(); break;
+	case 4: DodawanieKonta(); break;
+	case 5: ListaKont(); break;
+	case 6: UsuwanieKonta(); break;
 	}
 }
 
@@ -68,7 +71,7 @@ void Interfejs::Menu(){
 	Bevel("Menu");
 	cout << "Kartoteka klientow          Katroteka rachunkow        Transakcje             " << endl;
 	cout << "1. Dodaj klienta            4. Dodaj rachunek          7. Wplata              " << endl;
-	cout << "2. Lista klientow           5. Szczegoly rachunku      8. Wyplata             " << endl;
+	cout << "2. Lista klientow           5. Lista rachunkow         8. Wyplata             " << endl;
 	cout << "3. Edytuj dane klienta      6. Usun rachunek           9. Przelew             " << endl;
 	cout << "                                                      10. Historia transakcji " << endl;
 	cout << "\n0. Wyjscie                                                                  " << endl;
@@ -98,4 +101,19 @@ void Interfejs::WypisanieListyKlientow(){
 void Interfejs::EdytowanieDanychKlienta(){
 	Bevel("Edytuj dane klienta");
 	this->core.EdytujDaneklienta();
+}
+
+void Interfejs::DodawanieKonta(){
+	Bevel("Dodaj rachunek");
+	this->core.DodajRachunek();
+}
+
+void Interfejs::ListaKont(){
+	Bevel("Lista rachunkow");
+	this->core.ListaRachunkow();
+}
+
+void Interfejs::UsuwanieKonta(){
+	Bevel("Usun rachunek");
+	this->core.UsunRachunek();
 }

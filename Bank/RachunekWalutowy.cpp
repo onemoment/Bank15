@@ -2,6 +2,7 @@
 
 
 RachunekWalutowy::RachunekWalutowy(Waluta waluta){
+	Rachunek::Rachunek();
 	setWaluta(waluta);
 }
 

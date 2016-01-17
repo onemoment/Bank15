@@ -19,6 +19,10 @@ class Interfejs{
 	void DodawanieKlienta();
 	void WypisanieListyKlientow();
 	void EdytowanieDanychKlienta();
+
+	void DodawanieKonta();
+	void ListaKont();
+	void UsuwanieKonta();
 public:
 	Interfejs();
 	void Run();

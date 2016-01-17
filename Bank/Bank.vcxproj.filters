@@ -48,6 +48,9 @@
     <ClCompile Include="RachunekOszczednosciowy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RachunekBiezacy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Adres.h">

@@ -1,3 +1,6 @@
 #include "Rachunek.h"
 
-class RachunekBiezacy : Rachunek {};
+class RachunekBiezacy : public Rachunek {
+public:
+	RachunekBiezacy(int idKlient);
+};
