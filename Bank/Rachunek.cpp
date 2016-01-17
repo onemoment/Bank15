@@ -2,39 +2,6 @@
 #include "Rachunek.h"
 #include "Tool.h"
 
-
-int Bank::sumaKontrolna(std::string numerKonta){
-	int liczba;
-	int suma = 0;
-	for (int i=0; i<numerKonta.length(); i++){
-		liczba = (int) numerKonta[i] - 48;
-		suma += liczba;
-	}
-
-	suma = suma % 100;
-	return suma;
-}
-
-Bank::Bank() : nazwa(""){
-	this->numerPlacowki = rand();
-}
-
-Bank::Bank(std::string nazwaOddzialu){
-	Bank();
-	setNazwa(nazwaOddzialu);
-}
-
-void Bank::setNazwa(std::string nazwa){
-	this->nazwa = nazwa;
-}
-
-void Bank::uaktualnijAdres(TrybEdycji trybEdycji){
-	this->adres.uzupelnij(trybEdycji);
-}
-
-int Bank::getNumerPlacowki(){ return this->numerPlacowki; }
-std::string Bank::getNazwa(){ return this->nazwa; }
-
 Rachunek::Rachunek(){
 	std::string idOddzial = Tool::uzupelnijDoDlugosci(Tool::asString(getNumerPlacowki()), 10);
 	std::string idRachunek = Tool::uzupelnijDoDlugosci(Tool::asString(rand()), 10);
@@ -89,6 +56,10 @@ double Rachunek::getProwizja(){
 	return this->prowizja;
 }
 
+void Rachunek::setWaluta(Waluta waluta){
+	this->waluta = waluta;
+}
+
 Waluta Rachunek::getWaluta(){
 	return this->waluta;
 }
@@ -97,12 +68,12 @@ double Rachunek::getSaldo(){
 	return this->stanKonta;
 }
 
-bool Rachunek::wplata(double kwota){
+bool Rachunek::wplata(std::string tytul, double kwota){
 	this->stanKonta += kwota;
 	return true;
 }
 
-bool Rachunek::wyplata(double kwota){
+bool Rachunek::wyplata(std::string tytul, double kwota){
 	if (kwota >= this->stanKonta){
 		this->stanKonta -= kwota;
 		return true;
@@ -117,10 +88,10 @@ bool Rachunek::zamknijRachunek(){
 	this->dataZamkniecia = data;
 	return true;
 }
-void Rachunek::przelewPrzychodzacy(int nadawca, double kwota){
-	wplata(kwota);// log
+void Rachunek::przelewPrzychodzacy(int nadawca, double kwota, std::string tytul){
+	wplata(tytul, kwota);// log
 }
 
-void Rachunek::przelewWychodzacy(int odbiorca, double kwota){
-	wyplata(kwota); //log
+void Rachunek::przelewWychodzacy(int odbiorca, double kwota, std::string tytul){
+	wyplata(tytul, kwota); //log
 }

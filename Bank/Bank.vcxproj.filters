@@ -39,6 +39,15 @@
     <ClCompile Include="Rachunek.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Bank.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RachunekWalutowy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RachunekOszczednosciowy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Adres.h">
@@ -63,6 +72,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Rachunek.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bank.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RachunekWalutowy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RachunekBiezacy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RachunekOszczednosciowy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

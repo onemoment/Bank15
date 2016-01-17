@@ -67,10 +67,10 @@ void Interfejs::Menu(){
 	cout << endl;
 	Bevel("Menu");
 	cout << "Kartoteka klientow          Katroteka rachunkow        Transakcje             " << endl;
-	cout << "1. Dodaj klienta            5. Dodaj rachunek          8. Nowa transakcja     " << endl;
-	cout << "2. Lista klientow           6. Szczegoly rachunku      9. Historia transakcji " << endl;
-	cout << "3. Edytuj dane klienta      7. Usun rachunek                                  " << endl;
-	cout << "4. Usun klienta                                                               " << endl;
+	cout << "1. Dodaj klienta            5. Dodaj rachunek          8. Wplata              " << endl;
+	cout << "2. Lista klientow           6. Szczegoly rachunku      9. Wyplata             " << endl;
+	cout << "3. Edytuj dane klienta      7. Usun rachunek          10. Przelew             " << endl;
+	cout << "4. Usun klienta                                       11. Historia transakcji " << endl;
 	cout << "\n0. Wyjscie                                                                  " << endl;
 	cout << "> ";
 }

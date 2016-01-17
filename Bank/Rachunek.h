@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "Bank.h"
 #include "Adres.h"
 #include "Parametry.h"
 #include "Data.h"
@@ -9,23 +10,6 @@ enum Waluta{
 	wEUR,
 	wDOL,
 	wCHF
-};
-
-class Bank{
-private:
-	std::string nazwa;
-	Adres adres;
-	int numerPlacowki;
-	
-public:
-	Bank();
-	Bank(std::string nazwaOddzialu);
-	void setNazwa(std::string nazwa);
-	void uaktualnijAdres(TrybEdycji trybEdycji);
-
-	int getNumerPlacowki();
-	std::string getNazwa();
-	int sumaKontrolna(std::string numerKonta);
 };
 
 class Rachunek : Bank{
@@ -57,12 +41,13 @@ public:
 	void setProwizja(double prowizja);
 	double getProwizja();
 
+	void setWaluta(Waluta waluta);
 	Waluta getWaluta();
 
 	double getSaldo();
-	bool wplata(double kwota);
-	bool wyplata(double kwota);
+	bool wplata(std::string tytul, double kwota);
+	bool wyplata(std::string tytul, double kwota);
 	bool zamknijRachunek();
-	void przelewPrzychodzacy(int nadawca, double kwota);
-	void przelewWychodzacy(int odbiorca, double kwota);
+	void przelewPrzychodzacy(int nadawca, double kwota, std::string tytul);
+	void przelewWychodzacy(int odbiorca, double kwota, std::string tytul);
 };
