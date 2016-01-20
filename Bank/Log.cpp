@@ -11,8 +11,7 @@ Log::Log(){
 
 void Log::init(){
 	std::ofstream plik;
-	plik.open(this->nazwaPliku, std::ios_base::app);
-	plik.clear();
+	plik.open(this->nazwaPliku, std::ofstream::out | std::ofstream::trunc);
 	plik.close();
 }
 

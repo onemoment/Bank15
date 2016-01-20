@@ -23,7 +23,7 @@ public:
 
 	// lista rachunkow
 	void DodajRachunek();
-	void ListaRachunkow();
+	void ListaRachunkow(int wylaczenie = -1);
 	void UsunRachunek();
 	void PodajSaldo();
 

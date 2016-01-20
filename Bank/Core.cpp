@@ -95,7 +95,10 @@ void Core::DodajRachunek(){
 	}
 }
 
-void Core::ListaRachunkow(){
+void Core::ListaRachunkow(int wylaczenie){
+
+	bool pomin = wylaczenie >= 0;
+
 	if (this->konta.size() == 0){
 		std::cout << "    brak rachunkow.\n" << std::endl;
 	}
@@ -105,13 +108,15 @@ void Core::ListaRachunkow(){
 
 		for(int i = 0; i<this->konta.size(); i++){
 
-			this->konta[i].isOtwarty() ? status = "Aktywny" : status = "Zamkniety";
+			if ( !(pomin && i==wylaczenie) ){
+				this->konta[i].isOtwarty() ? status = "Aktywny" : status = "Zamkniety";
 
-			std::cout << i << ". Numer: " << this->konta[i].getNumer() << 
-				" Klient: " << this->klienci[this->konta[i].getKlientId()].getHeadLine() << 
-				" Saldo: " << this->konta[i].getSaldo() << " Status: " << status << 
-				std::endl;
-		}
+				std::cout << i << ". Numer: " << this->konta[i].getNumer() << 
+					" Klient: " << this->klienci[this->konta[i].getKlientId()].getHeadLine() << 
+					" Saldo: " << this->konta[i].getSaldo() << " Status: " << status << 
+					std::endl;
+			}//if
+		}//for
 	}
 }
 
@@ -188,7 +193,7 @@ void Core::WyslijPrzelew(){
 	if (id1 < this->konta.size()){
 		
 		std::cout << "Wybierz rachunek odbiorcy: " << std::endl;
-		ListaRachunkow(); // exclude
+		ListaRachunkow( id1 );
 		std::cout << "> ";
 		cin >> id2;
 
