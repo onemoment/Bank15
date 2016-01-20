@@ -23,6 +23,13 @@ class Interfejs{
 	void DodawanieKonta();
 	void ListaKont();
 	void UsuwanieKonta();
+	void SaldoKonta();
+
+	void TransakcjaWplata();
+	void TransakcjaWyplata();
+	void TransakcjaPrzelew();
+
+	void LogAplikacji();
 public:
 	Interfejs();
 	void Run();

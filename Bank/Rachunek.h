@@ -49,7 +49,5 @@ public:
 	bool wplata(std::string tytul, double kwota);
 	bool wyplata(std::string tytul, double kwota);
 	bool zamknijRachunek();
-	void przelewPrzychodzacy(int nadawca, double kwota, std::string tytul);
-	void przelewWychodzacy(int odbiorca, double kwota, std::string tytul);
 	std::string getNumer();
 };

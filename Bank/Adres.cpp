@@ -34,7 +34,7 @@ string Adres::getUlicaDom(){
 	Result.append(this->fDom);
 
 	if (this->fMieszkanie > 0)
-		Result.append("/") += Tool::asString(static_cast<long long> (this->fMieszkanie));
+		Result.append("/") += Tool::IntAsString(static_cast<long long> (this->fMieszkanie));
 
 	return Result;
 }
@@ -54,7 +54,7 @@ string Adres::getKraj(){
 
 string Adres::getKod(){
 	string Result;
-	Result = Tool::asString(static_cast<long long> (this->fKod));
+	Result = Tool::IntAsString(static_cast<long long> (this->fKod));
 
 	if (Result.length() < 5){
 		string Lead = "";

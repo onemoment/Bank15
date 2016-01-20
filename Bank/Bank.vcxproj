@@ -17,6 +17,7 @@
     <ClCompile Include="Data.cpp" />
     <ClCompile Include="Interfejs.cpp" />
     <ClCompile Include="Klient.cpp" />
+    <ClCompile Include="Log.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Rachunek.cpp" />
     <ClCompile Include="RachunekBiezacy.cpp" />
@@ -31,6 +32,7 @@
     <ClInclude Include="Data.h" />
     <ClInclude Include="Interfejs.h" />
     <ClInclude Include="Klient.h" />
+    <ClInclude Include="Log.h" />
     <ClInclude Include="Parametry.h" />
     <ClInclude Include="Rachunek.h" />
     <ClInclude Include="RachunekBiezacy.h" />

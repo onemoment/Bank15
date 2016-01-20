@@ -3,10 +3,10 @@
 #include "Tool.h"
 
 Rachunek::Rachunek(){
-	std::string idOddzial = Tool::uzupelnijDoDlugosci(Tool::asString(getNumerPlacowki()), 10);
-	std::string idRachunek = Tool::uzupelnijDoDlugosci(Tool::asString(rand()), 10);
+	std::string idOddzial = Tool::uzupelnijDoDlugosci(Tool::IntAsString(getNumerPlacowki()), 10);
+	std::string idRachunek = Tool::uzupelnijDoDlugosci(Tool::IntAsString(rand()), 10);
 	idOddzial.append(idRachunek);
-	idRachunek = Tool::uzupelnijDoDlugosci(Tool::asString(sumaKontrolna(idOddzial)), 2);
+	idRachunek = Tool::uzupelnijDoDlugosci(Tool::IntAsString(sumaKontrolna(idOddzial)), 2);
 	idRachunek.append(idOddzial);
 
 	this->numer = idRachunek;
@@ -78,7 +78,7 @@ bool Rachunek::wplata(std::string tytul, double kwota){
 }
 
 bool Rachunek::wyplata(std::string tytul, double kwota){
-	if (kwota >= this->stanKonta){
+	if (kwota <= this->stanKonta){
 		this->stanKonta -= kwota;
 		return true;
 	}else{
@@ -91,13 +91,6 @@ bool Rachunek::zamknijRachunek(){
 	Data data;
 	this->dataZamkniecia = data;
 	return true;
-}
-void Rachunek::przelewPrzychodzacy(int nadawca, double kwota, std::string tytul){
-	wplata(tytul, kwota);// log
-}
-
-void Rachunek::przelewWychodzacy(int odbiorca, double kwota, std::string tytul){
-	wyplata(tytul, kwota); //log
 }
 
 std::string Rachunek::getNumer(){

@@ -1,5 +1,6 @@
 #include <string>
 #include "Core.h"
+#include "Tool.h"
 #include "Parametry.h"
 #include "Klient.h"
 #include "RachunekBiezacy.h"
@@ -12,6 +13,7 @@ void Core::DodajKlienta(){
 	klient.uzupelnijAdres(teDodawanie);
 
 	this->klienci.push_back(klient);
+	zaloguj("Dodano klienta " + klient.getHeadLine());
 }
 
 void Core::WypiszKlientow(){
@@ -37,7 +39,6 @@ void Core::EdytujDaneklienta(){
 		this->klienci[id].uzupelnijDane(teZmiana);
 		this->klienci[id].uzupelnijAdres(teZmiana);
 	}
-
 }
 
 void Core::DodajRachunek(){
@@ -58,6 +59,7 @@ void Core::DodajRachunek(){
 		case 0:{
 			RachunekBiezacy rb(id);
 			this->konta.push_back(rb);
+			zaloguj("Utworzono konto " + rb.getNumer());
 			break;
 		}
 		case 1:{
@@ -67,6 +69,7 @@ void Core::DodajRachunek(){
 			RachunekOszczednosciowy ro(procent);
 			ro.podlaczKlienta(id);
 			this->konta.push_back(ro);
+			zaloguj("Utworzono konto " + ro.getNumer());
 			break;
 		}
 		case 2:{
@@ -78,6 +81,7 @@ void Core::DodajRachunek(){
 				RachunekWalutowy rw(w);
 				rw.podlaczKlienta(id);
 				this->konta.push_back(rw);
+				zaloguj("Utworzono konto " + rw.getNumer());
 			}else{
 				std::cout << "Nie wybrano waluty." << std::endl;
 			}
@@ -120,6 +124,109 @@ void Core::UsunRachunek(){
 
 	if (id < this->konta.size()){
 		this->konta[id].zamknijRachunek();
+		zaloguj("Zamknieto konto " + this->konta[id].getNumer());
 	}
 
+}
+
+void Core::DokonajWplaty(){
+	std::cout << "Wybierz rachunek: " << std::endl;
+	int unsigned id;
+	ListaRachunkow();
+	std::cout << "> ";
+	cin >> id;
+
+	if (id < this->konta.size()){
+		
+		double kwota;
+		std::string tytul;
+
+		std::cout << "Podaj kwote wplaty: ";
+		std::cin >> kwota;
+
+		std::cout << "Tytul wplaty: ";
+		std::cin >> tytul;
+
+		this->konta[id].wplata(tytul, kwota);
+		zaloguj("Wplata na konto " + this->konta[id].getNumer() + " Tytulem \"" + tytul + "\" Kwota " + Tool::DoubleAsString(kwota));
+	}
+
+}
+
+void Core::DokonajWyplaty(){
+	std::cout << "Wybierz rachunek: " << std::endl;
+	int unsigned id;
+	ListaRachunkow();
+	std::cout << "> ";
+	cin >> id;
+
+	if (id < this->konta.size()){
+		
+		double kwota;
+		std::string tytul;
+
+		std::cout << "Podaj kwote wyplaty: ";
+		std::cin >> kwota;
+
+		std::cout << "Tytul wyplaty: ";
+		std::cin >> tytul;
+
+		this->konta[id].wyplata(tytul, kwota);
+		zaloguj("Wyplata z konta " + this->konta[id].getNumer() + " Tytulem \"" + tytul + "\" Kwota " + Tool::DoubleAsString(kwota));
+	}
+}
+
+void Core::WyslijPrzelew(){
+	int unsigned id1;
+	int unsigned id2;
+
+	std::cout << "Wybierz rachunek nadawcy: " << std::endl;
+	ListaRachunkow();
+	std::cout << "> ";
+	cin >> id1;
+
+	if (id1 < this->konta.size()){
+		
+		std::cout << "Wybierz rachunek odbiorcy: " << std::endl;
+		ListaRachunkow(); // exclude
+		std::cout << "> ";
+		cin >> id2;
+
+		if (id1 < this->konta.size() && id1 != id2){
+
+			double kwota;
+			std::string tytul;
+
+			std::cout << "Podaj kwote wplaty: ";
+			std::cin >> kwota;
+
+			std::cout << "Tytul wplaty: ";
+			std::cin >> tytul;
+
+			Przelew(id1, id2, tytul, kwota);
+			zaloguj("Wykonano przelew z konta " + this->konta[id1].getNumer() + " na konto " + this->konta[id2].getNumer() + " Tytulem \"" + tytul + "\" Kwota " + Tool::DoubleAsString(kwota));
+		}
+	}
+}
+
+void Core::Przelew(int idKlient1, int idKlient2, std::string tytul, double kwota){
+	this->konta[idKlient1].wyplata(tytul, kwota);
+	this->konta[idKlient2].wplata(tytul, kwota);
+}
+
+void Core::PodajSaldo(){
+	std::cout << "Wybierz rachunek: " << std::endl;
+	int unsigned id;
+	ListaRachunkow();
+	std::cout << "> ";
+	cin >> id;
+
+	if (id < this->konta.size()){
+		std::cout << "Obecne saldo: " << this->konta[id].getSaldo() << this->konta[id].getWaluta() << std::endl;
+	}
+}
+
+
+void Core::PokazLog(){
+	pokaz();
 }

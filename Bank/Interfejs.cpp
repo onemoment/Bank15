@@ -40,12 +40,21 @@ void Interfejs::Bevel(std::string Header){
 
 void Interfejs::Use(){
 	switch(this->wybor){
-	case 1: DodawanieKlienta(); break;
-	case 2: WypisanieListyKlientow(); break;
-	case 3: EdytowanieDanychKlienta(); break;
-	case 4: DodawanieKonta(); break;
-	case 5: ListaKont(); break;
-	case 6: UsuwanieKonta(); break;
+	// klienci
+	case  1: DodawanieKlienta(); break;
+	case  2: WypisanieListyKlientow(); break;
+	case  3: EdytowanieDanychKlienta(); break;
+	// konta
+	case  4: DodawanieKonta(); break;
+	case  5: ListaKont(); break;
+	case  6: UsuwanieKonta(); break;
+	case  7: SaldoKonta(); break;
+	// transakcje
+	case  8: TransakcjaWplata(); break;
+	case  9: TransakcjaWyplata(); break;
+	case 10: TransakcjaPrzelew(); break;
+
+	case 11: LogAplikacji(); break;
 	}
 }
 
@@ -69,12 +78,12 @@ void Interfejs::Menu(){
 
 	cout << endl;
 	Bevel("Menu");
-	cout << "Kartoteka klientow          Katroteka rachunkow        Transakcje             " << endl;
-	cout << "1. Dodaj klienta            4. Dodaj rachunek          7. Wplata              " << endl;
-	cout << "2. Lista klientow           5. Lista rachunkow         8. Wyplata             " << endl;
-	cout << "3. Edytuj dane klienta      6. Usun rachunek           9. Przelew             " << endl;
-	cout << "                                                      10. Historia transakcji " << endl;
-	cout << "\n0. Wyjscie                                                                  " << endl;
+	cout << "Kartoteka klientow        Katroteka rachunkow       Transakcje         " << endl;
+	cout << "1. Dodaj klienta          4. Dodaj rachunek          8. Wplata         " << endl;
+	cout << "2. Lista klientow         5. Lista rachunkow         9. Wyplata        " << endl;
+	cout << "3. Edytuj dane klienta    6. Usun rachunek          10. Przelew        " << endl;
+	cout << "                          7. Saldo rachunku                            " << endl;
+	cout << "\n0. Wyjscie                                        11. Log aplikacji  " << endl;
 	cout << "> ";
 }
 
@@ -116,4 +125,30 @@ void Interfejs::ListaKont(){
 void Interfejs::UsuwanieKonta(){
 	Bevel("Usun rachunek");
 	this->core.UsunRachunek();
+}
+
+void Interfejs::SaldoKonta(){
+	Bevel("Saldo rachunku");
+	this->core.PodajSaldo();
+}
+
+
+void Interfejs::TransakcjaWplata(){
+	Bevel("Wplata na rachunek");
+	this->core.DokonajWplaty();
+}
+
+void Interfejs::TransakcjaWyplata(){
+	Bevel("Wyplata z rachunku");
+	this->core.DokonajWyplaty();
+}
+
+void Interfejs::TransakcjaPrzelew(){
+	Bevel("Przelew");
+	this->core.WyslijPrzelew();
+}
+
+void Interfejs::LogAplikacji(){
+	Bevel("Dziennik aplikacji");
+	this->core.PokazLog();
 }

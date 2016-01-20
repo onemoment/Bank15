@@ -55,14 +55,14 @@ string Data::getData(){
 	int v = this->getDzien();
 
 	if (v<10) Result.append("0");
-	Result += Tool::asString(v);
+	Result += Tool::IntAsString(v);
 	Result += "-";
 
 	v = this->getMiesiac();
 	if (v<10) Result.append("0");
-	Result += Tool::asString(v);
+	Result += Tool::IntAsString(v);
 	Result += "-";
 
-	Result += Tool::asString(this->getRok());
+	Result += Tool::IntAsString(this->getRok());
 	return Result;	
 }
