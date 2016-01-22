@@ -3,6 +3,7 @@
 #include <string>
 #include "Klient.h"
 #include "Adres.h"
+#include "Tool.h"
 
 Klient::Klient(): imie(""), nazwisko(""), rodzaj(rkOsobaFizyczna), aktywny(true){
 }
@@ -30,7 +31,7 @@ void Klient::uzupelnijDane(TrybEdycji trybEdycji){
 	while (wybor > 2){
 		if (trybEdycji == teZmiana) cout << "Rodzaj klienta : " << opisRodzaju() << endl << "Nowa wartosc : ";
 		std::cout << "Wskaz rodaj klienta: " << std::endl << "0. Osoba fizyczna " << std::endl << "1. Firma " << std::endl << "2. Instytucja " << std::endl << "Wybor : ";
-		std::cin >> wybor;
+		wybor = Tool::inputUInt();
 	}
 
 	_rodzaj = RodzajKlienta(wybor);
@@ -39,26 +40,27 @@ void Klient::uzupelnijDane(TrybEdycji trybEdycji){
 	case rkOsobaFizyczna :
 		if (trybEdycji == teZmiana) cout << "Imie : " << this->imie << endl << "Nowa wartosc : ";
 		std::cout << "Imie: ";
-		std::cin >> _imie;
+		//std::cin >> _imie;
+		_imie = Tool::inputString();
 		if (_imie.compare("") != 0) this->imie = _imie;
 
 		if (trybEdycji == teZmiana) cout << "Nazwisko : " << this->nazwisko << endl << "Nowa wartosc : ";
 		std::cout << "Nazwisko: ";
-		std::cin >> _nazwisko;
+		_nazwisko = Tool::inputString();
 		if (_nazwisko.compare("") != 0) this->nazwisko = _nazwisko;
 		break;
 
 	case rkFirma:
 		if (trybEdycji == teZmiana) cout << "Nazwa firmy : " << this->nazwisko << endl << "Nowa wartosc : ";
 		std::cout << "Nazwa firmy: ";
-		std::cin >> _nazwisko;
+		_nazwisko = Tool::inputString();
 		if (_nazwisko.compare("") != 0) this->nazwisko = _nazwisko;
 		break;
 
 	case rkInstytucja:
 		if (trybEdycji == teZmiana) cout << "Nazwa instytucji : " << this->nazwisko << endl << "Nowa wartosc : ";
 		std::cout << "Nazwa instytucji: ";
-		std::cin >> _nazwisko;
+		_nazwisko = Tool::inputString();
 		if (_nazwisko.compare("") != 0) this->nazwisko = _nazwisko;
 		break;
 	}

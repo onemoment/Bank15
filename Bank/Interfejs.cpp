@@ -3,6 +3,7 @@
 #include <string>
 #include "Interfejs.h"
 #include "Klient.h"
+#include "Tool.h"
 
 
 Interfejs::Interfejs(): wybor(0)
@@ -63,13 +64,18 @@ bool Interfejs::End(){
 }
 
 void Interfejs::Capture(){
-	std::cin >> this->wybor;
+	do{
+		this->wybor = Tool::inputUInt();
+		if (this->wybor == -1){
+			std::cout << "Bledne dane!" << std::endl;
+		}
+	}while(this->wybor == -1);
 }
 
 bool Interfejs::Valid(){
 	return 
 		(this->wybor >= 0) ||
-		(this->wybor <= 10);
+		(this->wybor <= 11);
 }
 
 void Interfejs::Menu(){

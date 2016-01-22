@@ -24,3 +24,37 @@ std::string Tool::uzupelnijDoDlugosci(std::string wpis, int dlugosc){
 	uzupelnienie.append(wpis);
 	return uzupelnienie;
 }
+
+int Tool::strToUInt(std::string input){
+	int res;
+	std::istringstream iss(input);
+	if (!(iss >> res))
+		return -1;
+	return res;
+}
+		
+double Tool::strToDouble(std::string input){
+	std::istringstream iss(input);
+	double res;
+	if (!(iss >> res))
+		return 0.0;
+	return res;
+}
+		
+std::string Tool::inputString(){
+	std::string _input;
+	getline(std::cin, _input);
+	return _input;
+}
+		
+int Tool::inputUInt(){
+	std::string _input;
+	_input = inputString();
+	return strToUInt(_input);
+}
+		
+double Tool::inputDouble(){
+	std::string _input;
+	_input = inputString();
+	return strToDouble(_input);
+}

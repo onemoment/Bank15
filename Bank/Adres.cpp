@@ -80,37 +80,37 @@ void Adres::uzupelnij(TrybEdycji trybEdycji){
 	// ulica
 	if (trybEdycji == teZmiana) cout << "Ulica : " << this->fUlica << endl << "Nowa wartosc : ";
 	cout << "Ulica: ";
-	cin >> _ulica;
+	_ulica = Tool::inputString();
 	if (_ulica.compare("") != 0) this->fUlica = _ulica;
 
 	// dom
 	if (trybEdycji == teZmiana) cout << "Numer domu : " << this->fDom << endl << "Nowa wartosc : ";
 	cout << "Numer domu: ";
-	cin >> _dom;
+	_dom = Tool::inputString();
 	if (_dom.compare("") != 0) this->fDom = _dom;
 
 	// mieszkanie
 	if (trybEdycji == teZmiana) cout << "Mieszkanie : " << this->fMieszkanie << endl << "Nowa wartosc : ";
 	cout << "Mieszkanie: ";
-	cin >> _mieszkanie;
+	_mieszkanie = Tool::inputUInt();
 	if (_mieszkanie != 0) this->fMieszkanie = _mieszkanie;
 
 	// miasto
 	if (trybEdycji == teZmiana) cout << "Miejscowosc : " << this->fMiasto << endl << "Nowa wartosc : ";
 	cout << "Miejscowosc: ";
-	cin >> _miasto;
+	_miasto = Tool::inputString();
 	if (_miasto.compare("") != 0) this->fMiasto = _miasto;
 
 	// kod pocztowy
 	if (trybEdycji == teZmiana) cout << "Kod pocztowy : " << getKod() << endl << "Nowa wartosc : ";
 	cout << "Kod pocztowy (bez kresek): ";
-	cin >> _kod;
+	_kod = Tool::inputUInt();
 	if (_kod != 0) this->fKod = _kod;
 
 	// kraj
 	if (trybEdycji == teZmiana) cout << "Kraj : " << this->fKraj << endl << "Nowa wartosc : ";
 	cout << "Kraj: ";
-	cin >> _kraj;
+	_kraj = Tool::inputString();
 	if (_kraj.compare("") != 0) this->fKraj = _kraj;
 }
 
