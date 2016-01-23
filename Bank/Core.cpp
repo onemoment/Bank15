@@ -33,7 +33,7 @@ void Core::EdytujDaneklienta(){
 	int unsigned id;
 	WypiszKlientow();
 	std::cout << "> ";
-	cin >> id;
+	id = Tool::inputUInt();
 
 	if (id < this->klienci.size()){
 		this->klienci[id].uzupelnijDane(teZmiana);
@@ -46,14 +46,14 @@ void Core::DodajRachunek(){
 	int unsigned id;
 	WypiszKlientow();
 	std::cout << "> ";
-	cin >> id;
+	id = Tool::inputUInt();
 
 	int typ = 10;
 
 	if (id < this->klienci.size()){
 		
 		std::cout << "Podaj rodzaj rachunku:\n0. Rachunek biezacy\n1. Rachunek oszczednosciowy\n2. Rachunek walutowy" << std::endl;
-		std::cin >> typ;
+		typ = Tool::inputUInt();
 
 		switch(typ){
 		case 0:{
@@ -65,7 +65,7 @@ void Core::DodajRachunek(){
 		case 1:{
 			double procent;
 			std::cout << "Podaj oprocentowanie: ";
-			std::cin >> procent;
+			procent = Tool::inputDouble();
 			RachunekOszczednosciowy ro(procent);
 			ro.podlaczKlienta(id);
 			this->konta.push_back(ro);
@@ -75,7 +75,7 @@ void Core::DodajRachunek(){
 		case 2:{
 			int wal;
 			std::cout << "Podaj walute: \n1. EURO\n2. Dolar\n3. CHF" << std::endl;
-			std::cin >> wal;
+			wal = Tool::inputUInt();
 			if (wal > 0 && wal <=3){
 				Waluta w = Waluta(wal);
 				RachunekWalutowy rw(w);
@@ -125,7 +125,7 @@ void Core::UsunRachunek(){
 	int unsigned id;
 	ListaRachunkow();
 	std::cout << "> ";
-	cin >> id;
+	id = Tool::inputUInt();
 
 	if (id < this->konta.size()){
 		this->konta[id].zamknijRachunek();
@@ -139,7 +139,7 @@ void Core::DokonajWplaty(){
 	int unsigned id;
 	ListaRachunkow();
 	std::cout << "> ";
-	cin >> id;
+	id = Tool::inputUInt();
 
 	if (id < this->konta.size()){
 		
@@ -147,10 +147,10 @@ void Core::DokonajWplaty(){
 		std::string tytul;
 
 		std::cout << "Podaj kwote wplaty: ";
-		std::cin >> kwota;
+		kwota = Tool::inputDouble();
 
 		std::cout << "Tytul wplaty: ";
-		std::cin >> tytul;
+		tytul = Tool::inputString();
 
 		this->konta[id].wplata(tytul, kwota);
 		zaloguj("Wplata na konto " + this->konta[id].getNumer() + " Tytulem \"" + tytul + "\" Kwota " + Tool::DoubleAsString(kwota));
@@ -163,7 +163,7 @@ void Core::DokonajWyplaty(){
 	int unsigned id;
 	ListaRachunkow();
 	std::cout << "> ";
-	cin >> id;
+	id = Tool::inputUInt();
 
 	if (id < this->konta.size()){
 		
@@ -171,10 +171,10 @@ void Core::DokonajWyplaty(){
 		std::string tytul;
 
 		std::cout << "Podaj kwote wyplaty: ";
-		std::cin >> kwota;
+		kwota = Tool::inputDouble();
 
 		std::cout << "Tytul wyplaty: ";
-		std::cin >> tytul;
+		tytul = Tool::inputString();
 
 		this->konta[id].wyplata(tytul, kwota);
 		zaloguj("Wyplata z konta " + this->konta[id].getNumer() + " Tytulem \"" + tytul + "\" Kwota " + Tool::DoubleAsString(kwota));
@@ -188,14 +188,14 @@ void Core::WyslijPrzelew(){
 	std::cout << "Wybierz rachunek nadawcy: " << std::endl;
 	ListaRachunkow();
 	std::cout << "> ";
-	cin >> id1;
+	id1 = Tool::inputUInt();
 
 	if (id1 < this->konta.size()){
 		
 		std::cout << "Wybierz rachunek odbiorcy: " << std::endl;
 		ListaRachunkow( id1 );
 		std::cout << "> ";
-		cin >> id2;
+		id2 = Tool::inputUInt();
 
 		if (id1 < this->konta.size() && id1 != id2){
 
@@ -203,10 +203,10 @@ void Core::WyslijPrzelew(){
 			std::string tytul;
 
 			std::cout << "Podaj kwote wplaty: ";
-			std::cin >> kwota;
+			kwota = Tool::inputDouble();
 
 			std::cout << "Tytul wplaty: ";
-			std::cin >> tytul;
+			tytul = Tool::inputString();
 
 			Przelew(id1, id2, tytul, kwota);
 			zaloguj("Wykonano przelew z konta " + this->konta[id1].getNumer() + " na konto " + this->konta[id2].getNumer() + " Tytulem \"" + tytul + "\" Kwota " + Tool::DoubleAsString(kwota));
@@ -224,7 +224,7 @@ void Core::PodajSaldo(){
 	int unsigned id;
 	ListaRachunkow();
 	std::cout << "> ";
-	cin >> id;
+	id = Tool::inputUInt();
 
 	if (id < this->konta.size()){
 		std::cout << "Obecne saldo: " << this->konta[id].getSaldo() << this->konta[id].getWaluta() << std::endl;
