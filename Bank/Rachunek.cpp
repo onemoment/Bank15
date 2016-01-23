@@ -9,6 +9,9 @@ Rachunek::Rachunek(){
 	idRachunek = Tool::uzupelnijDoDlugosci(Tool::IntAsString(sumaKontrolna(idOddzial)), 2);
 	idRachunek.append(idOddzial);
 
+	Data data;
+	data.teraz();
+	this->dataZalozenia = data;
 	this->numer = idRachunek;
 	this->stanKonta = 0.0;
 	this->klient = -1;
@@ -89,6 +92,7 @@ bool Rachunek::wyplata(std::string tytul, double kwota){
 bool Rachunek::zamknijRachunek(){
 	this->otwarty = false;
 	Data data;
+	data.teraz();
 	this->dataZamkniecia = data;
 	return true;
 }

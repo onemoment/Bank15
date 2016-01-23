@@ -19,4 +19,6 @@ public:
 	int getMiesiac();
 	int getRok();
 	string getData();
+
+	void teraz();
 };

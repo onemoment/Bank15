@@ -4,6 +4,7 @@
 #include "Interfejs.h"
 #include "Klient.h"
 #include "Tool.h"
+#include "Data.h"
 
 
 Interfejs::Interfejs(): wybor(0)
@@ -96,6 +97,9 @@ void Interfejs::Menu(){
 
 void Interfejs::Welcome(){
 	std::cout << "Aplikacja bankowa" << std::endl << std::endl;
+	Data data;
+	data.teraz();
+	this->core.zaloguj("Uruchomienie dnia: " + data.getData());
 }
 
 void Interfejs::Bye(){

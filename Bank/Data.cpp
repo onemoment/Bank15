@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <time.h>
 #include "Tool.h"
 #include "Data.h"
 
@@ -65,4 +66,12 @@ string Data::getData(){
 
 	Result += Tool::IntAsString(this->getRok());
 	return Result;	
+}
+
+void Data::teraz(){
+    time_t t = time(0);
+    struct tm * now = localtime( & t );
+	setRok(now->tm_year + 1900);
+	setMiesiac(now->tm_mon + 1);
+	setDzien(now->tm_mday);
 }
