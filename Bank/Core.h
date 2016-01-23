@@ -19,6 +19,7 @@ public:
 	// kartoteka klientow
 	void DodajKlienta();
 	void WypiszKlientow();
+	void WyswietlKlienta();
 	void EdytujDaneklienta();
 
 	// lista rachunkow

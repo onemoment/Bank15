@@ -82,3 +82,11 @@ std::string Klient::getHeadLine(){
 	hl.append(this->nazwisko);
 	return hl;
 }
+
+std::string Klient::getInfo(){
+	std::string info = "";
+	info.append(this->adres.getUlicaDom());
+	info.append(", ");
+	info.append(this->adres.getKodMiasto());
+	return info;
+}

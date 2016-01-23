@@ -18,6 +18,7 @@ class Interfejs{
 	// akcje
 	void DodawanieKlienta();
 	void WypisanieListyKlientow();
+	void SzczegolyKlienta();
 	void EdytowanieDanychKlienta();
 
 	void DodawanieKonta();

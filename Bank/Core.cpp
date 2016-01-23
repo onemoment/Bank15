@@ -28,6 +28,31 @@ void Core::WypiszKlientow(){
 	}
 }
 
+void Core::WyswietlKlienta(){
+	std::cout << "Wybierz klienta: " << std::endl;
+	int unsigned id;
+	WypiszKlientow();
+	std::cout << "> ";
+	id = Tool::inputUInt();
+
+	if (id < this->klienci.size()){
+		std::cout << this->klienci[id].getHeadLine() << std:: endl;
+		std::cout << this->klienci[id].getInfo() << std:: endl;
+
+		int licz = 0;
+		std::cout << "Posiadane konta: " << std:: endl;
+		for (int i = 0; i<this->konta.size(); i++){
+			if (this->konta[i].getKlientId() == id){
+				licz++;
+				std::cout << licz << "  " << this->konta[i].getNumer() << " Saldo: " << this->konta[i].getSaldo()  << std::endl;
+			}
+		}
+		if (licz == 0){
+			std::cout << "Brak utworzonych kont dla klienta. " << std::endl;
+		}
+	}
+}
+
 void Core::EdytujDaneklienta(){
 	std::cout << "Wybierz klienta do edycji: " << std::endl;
 	int unsigned id;
@@ -230,7 +255,6 @@ void Core::PodajSaldo(){
 		std::cout << "Obecne saldo: " << this->konta[id].getSaldo() << this->konta[id].getWaluta() << std::endl;
 	}
 }
-
 
 void Core::PokazLog(){
 	pokaz();

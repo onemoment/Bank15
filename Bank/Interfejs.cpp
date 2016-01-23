@@ -44,18 +44,19 @@ void Interfejs::Use(){
 	// klienci
 	case  1: DodawanieKlienta(); break;
 	case  2: WypisanieListyKlientow(); break;
-	case  3: EdytowanieDanychKlienta(); break;
+	case  3: SzczegolyKlienta(); break;
+	case  4: EdytowanieDanychKlienta(); break;
 	// konta
-	case  4: DodawanieKonta(); break;
-	case  5: ListaKont(); break;
-	case  6: UsuwanieKonta(); break;
-	case  7: SaldoKonta(); break;
+	case  5: DodawanieKonta(); break;
+	case  6: ListaKont(); break;
+	case  7: UsuwanieKonta(); break;
+	case  8: SaldoKonta(); break;
 	// transakcje
-	case  8: TransakcjaWplata(); break;
-	case  9: TransakcjaWyplata(); break;
-	case 10: TransakcjaPrzelew(); break;
+	case  9: TransakcjaWplata(); break;
+	case 10: TransakcjaWyplata(); break;
+	case 11: TransakcjaPrzelew(); break;
 
-	case 11: LogAplikacji(); break;
+	case 12: LogAplikacji(); break;
 	}
 }
 
@@ -75,7 +76,7 @@ void Interfejs::Capture(){
 bool Interfejs::Valid(){
 	return 
 		(this->wybor >= 0) ||
-		(this->wybor <= 11);
+		(this->wybor <= 12);
 }
 
 void Interfejs::Menu(){
@@ -85,11 +86,11 @@ void Interfejs::Menu(){
 	cout << endl;
 	Bevel("Menu");
 	cout << "Kartoteka klientow        Katroteka rachunkow       Transakcje         " << endl;
-	cout << "1. Dodaj klienta          4. Dodaj rachunek          8. Wplata         " << endl;
-	cout << "2. Lista klientow         5. Lista rachunkow         9. Wyplata        " << endl;
-	cout << "3. Edytuj dane klienta    6. Usun rachunek          10. Przelew        " << endl;
-	cout << "                          7. Saldo rachunku                            " << endl;
-	cout << "\n0. Wyjscie                                        11. Log aplikacji  " << endl;
+	cout << "1. Dodaj klienta          5. Dodaj rachunek          9. Wplata         " << endl;
+	cout << "2. Lista klientow         6. Lista rachunkow        10. Wyplata        " << endl;
+	cout << "3. Szczegoly klienta      7. Usun rachunek          11. Przelew        " << endl;
+	cout << "4. Edytuj dane klienta    8. Saldo rachunku                            " << endl;
+	cout << "\n0. Wyjscie                                          12. Log aplikacji  " << endl;
 	cout << "> ";
 }
 
@@ -111,6 +112,11 @@ void Interfejs::DodawanieKlienta(){
 void Interfejs::WypisanieListyKlientow(){
 	Bevel("Lista klientow");
 	this->core.WypiszKlientow();
+}
+
+void Interfejs::SzczegolyKlienta(){
+	Bevel("Szczegoly klienta");
+	this->core.WyswietlKlienta();
 }
 
 void Interfejs::EdytowanieDanychKlienta(){

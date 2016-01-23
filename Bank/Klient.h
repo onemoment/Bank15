@@ -24,4 +24,5 @@ public:
 	void uzupelnijAdres(TrybEdycji trybEdycji);
 	void aktywuj(bool aktywacja);
 	std::string getHeadLine();
+	std::string getInfo();
 };
