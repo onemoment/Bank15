@@ -40,7 +40,6 @@ void Klient::uzupelnijDane(TrybEdycji trybEdycji){
 	case rkOsobaFizyczna :
 		if (trybEdycji == teZmiana) cout << "Imie : " << this->imie << endl << "Nowa wartosc : ";
 		std::cout << "Imie: ";
-		//std::cin >> _imie;
 		_imie = Tool::inputString();
 		if (_imie.compare("") != 0) this->imie = _imie;
 
